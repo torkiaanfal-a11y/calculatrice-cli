@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "Running pre-push hook: Maven clean verify..."
+
+mvn -B clean verify
+
+if [ $? -ne 0 ]; then
+    echo "Verification failed! Push rejected."
+    exit 1
+fi
+
+echo "All checks passed. Push allowed."
+exit 0

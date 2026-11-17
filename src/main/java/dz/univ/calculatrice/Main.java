@@ -1,12 +1,13 @@
+
 package dz.univ.calculatrice;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Operation add = new AddOperation();
-        Operation sub = new SubtractOperation();
+        final Scanner scanner = new Scanner(System.in);
+        final Operation add = new AddOperation();
+        final Operation sub = new SubtractOperation();
 
         while (true) {
             System.out.println("=== CALCULATRICE ===");
@@ -18,13 +19,15 @@ public class Main {
             if (!scanner.hasNextInt()) {
                 break;
             }
-            int choix = scanner.nextInt();
+
+            final int choix = scanner.nextInt();
 
             if (choix == 0) {
                 break;
             }
 
-            Operation op;
+            final Operation op;
+
             if (choix == 1) {
                 op = add;
             } else if (choix == 2) {
@@ -35,14 +38,17 @@ public class Main {
             }
 
             System.out.print("Premier nombre : ");
-            double a = scanner.nextDouble();
-            System.out.print("Deuxième nombre : ");
-            double b = scanner.nextDouble();
+            final double a = scanner.nextDouble();
 
-            double resultat = op.calculer(a, b);
+            System.out.print("Deuxième nombre : ");
+            final double b = scanner.nextDouble();
+
+            final double resultat = op.calculer(a, b);
+
             System.out.println("Résultat : " + resultat);
             System.out.println();
         }
+
         scanner.close();
     }
 }

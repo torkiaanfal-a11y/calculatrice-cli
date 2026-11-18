@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+          "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+          "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="error"/>
+    <property name="fileExtensions" value="java, properties, xml"/>
+
+    <!-- فحص طول الملف (يمنع الملفات الطويلة جداً) -->
+    <module name="FileLength">
+        <property name="max" value="2000"/>
+    </module>
+
+    <module name="TreeWalker">
+
+        <!-- تسمية الفئات (Classes) بطريقة UpperCamelCase -->
+        <module name="TypeName">
+            <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+            <message key="name.invalidPattern"
+             value="Le nom de la classe ''{0}'' doit respecter le format UpperCamelCase."/>
+        </module>
+
+        <!-- تسمية المتغيرات والطرق (Methods) بطريقة lowerCamelCase -->
+        <module name="MethodName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <module name="LocalVariableName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!-- الأقواس المعقوفة إجبارية -->
+        <module name="NeedBraces"/>
+
+        <!-- منع الاستيراد العام (مثل import java.util.*;) -->
+        <module name="AvoidStarImport"/>
+
+        <!-- المتغيرات المحلية النهائية التي لا تتغير يجب أن تكون final -->
+        <module name="FinalLocalVariable">
+            <property name="tokens" value="VARIABLE_DEF"/>
+        </module>
+
+    </module>
+</module>
